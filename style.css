@@ -15,4 +15,54 @@ body {
   border-radius: 0.25rem;
 }
 
+#flip_flap {
+  background-color: red;
+}
+
+.flip-flap-letter {
+  width: 1rem;
+  height: 0.5rem;
+  background-color: #333;
+  color: whitesmoke;
+  line-height: 1rem;
+  text-align: center;
+  border: 1px solid #fff;
+  border-radius: 0.2rem;
+}
+
+.back {
+  float: left;
+  width: 1rem;
+  height: 1.4rem;
+  padding: 0.25rem 0.25rem 0rem 0.25rem;
+  transform-origin: bottom center;
+}
+
+.up {
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 0.25rem 0.25rem 0rem 0.25rem;
+  transform-origin: bottom center;
+}
+
+.down {
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 0rem 0.25rem 0.25rem 0.25rem;
+  transform-origin: top center;
+  transform: scaleY(0.01);
+}
+
+#flip_flap:hover .flip-flap-letter.up {
+  transition-duration: 0.25s;
+  transform: scaleY(0.1);
+}
+
+#flip_flap:hover .flip-flap-letter.down {
+  transition-duration: 0.25s;
+  transform: scaleY(1);
+}
+
 /*# sourceMappingURL=style.css.map */
