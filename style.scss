@@ -8,6 +8,10 @@ body {
   padding: 1rem;
 }
 
+.container {
+  padding: 1rem;
+}
+
 #input_text {
   padding: 0.25rem 1rem 0.25rem 0.5rem;
   background-color: #333;
@@ -15,50 +19,210 @@ body {
   border-radius: 0.25rem;
 }
 
-#flip_flap{
-    background-color: red;
-}
-
-.flip-flap-letter {
+#flip_flap {
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+  background-color: red;
   width: 1rem;
-  height: 0.5rem;
+  height: 1rem;
+}
+
+.board {
+  float: left;
+  width: 100px;
+  height: 100px;
   background-color: #333;
-  color: whitesmoke;
-  line-height: 1rem;
+}
+
+.hamburger {
+  top: 50%;
+  left: 10%;
+  width: 50px;
+  height: 6px;
+  background: #fcfcfc;
+  position: absolute;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+
+.hamburger:before {
+  top: -16px;
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 6px;
+  background: #fcfcfc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+
+.hamburger:after {
+  top: 16px;
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 6px;
+  background: #fcfcfc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+
+/* Icon 1 */
+.icon-one {
+  background-color: #ddd;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+/*
+.hamburger-one:before,
+.hamburger-one:after {
+  content: '';
+  position:absolute;
+  width: 50px;
+  height: 6px;
+  background:#FCFCFC;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition:0.5s;
+}
+*/
+.icon-one.active-one .hamburger-one {
+  background: rgba(0, 0, 0, 0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+}
+
+.icon-one.active-one .hamburger-one:before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.icon-one.active-one .hamburger-one:after {
+  top: 0;
+  transform: rotate(135deg);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.letter {
+  float: left;
+  margin-left: 1px;
+  margin-top: 1px;
+  width: 24px;
+  height: 24px;
+  background: #333;
   text-align: center;
-  border: 1px solid #fff;
-  border-radius: 0.2rem;
-}
-.back{
+  line-height: 24px;
+  color: whitesmoke;
+
+  .back {
     float: left;
-    width: 1rem;
-    height: 1.4rem;
-    padding : 0.25rem 0.25rem 0rem 0.25rem;
-    transform-origin: bottom center;
-}
-
-.up{
-    position: relative;
     top: 0;
     left: 0;
-    padding : 0.25rem 0.25rem 0rem 0.25rem;
-    transform-origin: bottom center;
-}
-
-.down{
-    position: relative;
-    top: 0;
-    left: 0;
-    padding : 0rem 0.25rem 0.25rem 0.25rem;
-    transform-origin: top center;
-    transform: scaleY(0.01);
-}
-
-#flip_flap:hover .flip-flap-letter.up{
-    transition-duration: 0.25s;
-  transform: scaleY(0.1);
-}
-#flip_flap:hover .flip-flap-letter.down{
-    transition-duration: 0.25s;
+    width: 22px;
+    height: 22px;
+    background: inherit;
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-top-left-radius: 2px;
+    transform-origin: center center;
     transform: scaleY(1);
   }
+  .up {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    color: whitesmoke;
+    background-color: inherit;
+    border: inherit;
+    transform-origin: bottom center;
+    transform: scaleY(1);
+  }
+  .down {
+    position: relative;
+    bottom: 22px;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    color: whitesmoke;
+    background-color: inherit;
+    border: inherit;
+    transform-origin: top center;
+    transform: scaleY(0);
+  }
+}
+
+.letter:hover .up {
+  //background-color: inherit;
+  transition: 0.1s;
+  transform: scaleY(0);
+}
+
+.letter:hover .down {
+  //background-color: inherit;
+  transition-delay: 0.1s;
+  transition-duration: 0.1s;
+  transform: scaleY(1);
+}
+
+// .up {
+//   position: relative;
+//   top: 0;
+//   left: 0;
+//   padding: 0.25rem 0.25rem 0rem 0.25rem;
+//   transform-origin: bottom center;
+// }
+
+// .down {
+//   position: relative;
+//   top: 0;
+//   left: 0;
+//   padding: 0rem 0.25rem 0.25rem 0.25rem;
+//   transform-origin: top center;
+//   transform: scaleY(0.01);
+// }
+
+#flip_flap:hover .flip-flap-letter.up {
+  transition-duration: 0.25s;
+  transform: scaleY(0.1);
+}
+#flip_flap:hover .flip-flap-letter.down {
+  transition-duration: 0.25s;
+  transform: scaleY(1);
+}
+
+.rear {
+  position: relative;
+  margin-left: 1px;
+  margin-top: 1px;
+  width: 24px;
+  height: 24px;
+  background: #333;
+  text-align: center;
+  line-height: 24px;
+  color: whitesmoke;
+  position: absolute;
+  transition: 0.5s;
+  border: 1px solid whitesmoke;
+  border-top-left-radius: 2px;
+}
+
+.front {
+  position: relative;
+  margin-left: 1px;
+  margin-top: 1px;
+  width: 24px;
+  height: 24px;
+  background: #333;
+  text-align: center;
+  line-height: 24px;
+  color: whitesmoke;
+  position: absolute;
+  transition: 0.5s;
+  border: 1px solid whitesmoke;
+  border-top-left-radius: 2px;
+}
