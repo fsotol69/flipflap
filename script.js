@@ -25,7 +25,7 @@ function showCharsetCodeLetters(text) {
   console.log('running...');
   for (let i = 0; i < text.length; i++) {
     let code = text.charAt(i);
-    console.log(code);
+    //console.log(code);
     flipLetter(text.charAt(i), i);
   }
 }
@@ -46,17 +46,19 @@ function flipLetter(value, position) {
     console.log('initcode : ' + initCharcode);
     console.log('finalcode : ' + finalCharcode);
     if (initCharcode <= finalCharcode) {
-      for (let code = initCharcode; code <= finalCharcode; code++) {
-        console.log('code : ' + code);
-        console.log(typeof code);
-        let charLetter = String.fromCharCode(code);
-        console.log('character : ' + charLetter);
-        //printLetter(charLetter, letter);
-        (function(index) {
-          setTimeout(function() {
-            printLetter(charLetter, letter);
-          }, 1000);
-        })(code);
+      let ink = finalCharcode - initCharcode;
+      let k = 0;
+      for (let code = 0; code <= ink; code++) {
+        // setTimeout(() => {
+        //   console.log('code : ' + (k + initCharcode));
+        //   console.log(typeof (k + initCharcode));
+        //   let charLetter = String.fromCharCode(k + initCharcode);
+        //   console.log('character : ' + charLetter);
+        //   // printLetter(charLetter, letter);
+        // }, 200 * (k+1));
+        setTimeout(function() {
+          console.log('count ', k);
+        }, 1000 * (k + 1));
       }
     } else {
       for (let code = finalCharcode; code >= finalCharcode; code--) {
@@ -71,11 +73,19 @@ function flipLetter(value, position) {
 }
 
 function printLetter(letter, domElement) {
-  // setTimeout(() => {
-  //   console.log('letter : ' + letter);
+  setTimeout(() => {
+    console.log('letter : ' + letter);
     domElement.innerHTML = letter;
-  //   console.log(domElement);
-  // }, 1000);
+    console.log(domElement);
+  }, 1000);
+  /*
+    for (let i = 0; i <= 24; ++i) {
+    let k = i;
+    setTimeout(function() {
+      console.log(k + 65);
+    }, 500 * (k + 1));
+  }
+  */
 }
 
 function loadLetter() {
@@ -84,3 +94,18 @@ function loadLetter() {
   let front_flip = document.querySelector('[tokenid="1F"]');
   front_flip.innerHTML = 'B';
 }
+
+// addEventListener('load', () => {
+//   for (let i = 0; i <= 24; ++i) {
+//     let k = i;
+//     setTimeout(function() {
+//       console.log(k + 65);
+//     }, 500 * (k + 1));
+//   }
+//   // for (let i = 0; i < 5; i++) {
+//   //   let k = i;
+//   //   setTimeout(function() {
+//   //     console.log('count ', k);
+//   //   }, 1000 * (k + 1));
+//   // }
+// });
